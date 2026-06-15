@@ -19,33 +19,34 @@
   --gold:#e8c97a;
   --green:#4ade80;
 }
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;width:100%}
 a{color:var(--accent);text-decoration:none}
 a:hover{color:var(--accent2)}
+img,svg{max-width:100%}
 
-/* scrollbar */
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
 
 /* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
-.nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
-.nav-logo{font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;gap:1rem}
+.nav-logo{font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 .nav-logo span{color:var(--accent)}
 .nav-links{display:flex;gap:2rem}
-.nav-links a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.nav-links a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--text)}
 
-main{max-width:1000px;margin:0 auto;padding:0 2rem}
+main{max-width:1000px;margin:0 auto;padding:0 2rem;overflow-x:hidden}
 
 /* hero */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 360px;gap:4rem;align-items:center;padding-top:60px}
-.hero-eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
-.hero-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 2s infinite}
+.hero-eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 2s infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero-eyebrow span{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
-.hero h1{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:300;line-height:1.15;margin-bottom:1.5rem;letter-spacing:-.02em}
+.hero h1{font-size:clamp(1.8rem,7vw,3.4rem);font-weight:300;line-height:1.15;margin-bottom:1.5rem;letter-spacing:-.02em}
 .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-size:16px;color:var(--muted);margin-bottom:2.5rem;line-height:1.7;max-width:480px}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
@@ -62,23 +63,22 @@ main{max-width:1000px;margin:0 auto;padding:0 2rem}
 .avatar-info h3{font-size:16px;font-weight:500;margin-bottom:.2rem}
 .avatar-info p{font-size:12px;color:var(--muted)}
 .card-divider{height:1px;background:var(--border);margin:1.25rem 0}
-.card-stat{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0}
-.card-stat-label{font-size:12px;color:var(--muted)}
-.card-stat-val{font-size:12px;color:var(--text)}
+.card-stat{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;gap:1rem}
+.card-stat-label{font-size:12px;color:var(--muted);flex-shrink:0}
+.card-stat-val{font-size:12px;color:var(--text);text-align:right}
 .badge-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.2rem}
-.badge{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .75rem;border-radius:20px;font-size:11px;letter-spacing:.05em}
+.badge{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .75rem;border-radius:20px;font-size:11px;letter-spacing:.05em;white-space:nowrap}
 .badge-blue{background:rgba(108,143,255,.12);color:var(--accent);border:1px solid rgba(108,143,255,.2)}
 .badge-purple{background:rgba(167,139,250,.12);color:var(--accent2);border:1px solid rgba(167,139,250,.2)}
 .badge-green{background:rgba(74,222,128,.12);color:var(--green);border:1px solid rgba(74,222,128,.2)}
 .badge-gold{background:rgba(232,201,122,.12);color:var(--gold);border:1px solid rgba(232,201,122,.2)}
-.flag{font-size:14px}
 
 /* sections */
 section{padding:6rem 0;border-top:1px solid var(--border)}
 .section-header{margin-bottom:3rem}
 .section-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
 .section-tag::before{content:'';width:20px;height:1px;background:var(--accent)}
-.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;letter-spacing:-.02em}
+.section-title{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:300;letter-spacing:-.02em}
 
 /* about */
 .about-grid{display:grid;grid-template-columns:1fr 280px;gap:3rem;align-items:start}
@@ -94,7 +94,6 @@ section{padding:6rem 0;border-top:1px solid var(--border)}
 .exp-list{display:flex;flex-direction:column;gap:1.5rem}
 .exp-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;display:grid;grid-template-columns:160px 1fr;gap:2rem;transition:border-color .2s}
 .exp-card:hover{border-color:var(--border2)}
-.exp-meta{}
 .exp-period{font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem}
 .exp-company{font-size:12px;color:var(--muted)}
 .exp-body h3{font-size:17px;font-weight:500;margin-bottom:.6rem}
@@ -105,15 +104,18 @@ section{padding:6rem 0;border-top:1px solid var(--border)}
 /* education */
 .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;position:relative;overflow:hidden}
 .edu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent)}
-.edu-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1rem}
+.edu-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
 .edu-degree{font-size:18px;font-weight:400;margin-bottom:.3rem}
 .edu-inst{font-size:13px;color:var(--accent)}
 .edu-body{font-size:14px;color:var(--muted);line-height:1.7}
 .edu-body strong{color:var(--text);font-weight:500}
+.thesis-box{margin-top:1.25rem;padding:1rem 1.25rem;background:rgba(232,201,122,.06);border:1px solid rgba(232,201,122,.2);border-radius:8px;display:flex;flex-direction:column;gap:.5rem}
+.thesis-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.5rem}
 
 /* skills */
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .skill-group{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
+.skill-group.highlight{border-color:rgba(108,143,255,.3);background:linear-gradient(180deg,rgba(108,143,255,.06),var(--surface))}
 .skill-group-title{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
 .skill-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
 .skill-list li{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:.6rem}
@@ -127,20 +129,82 @@ section{padding:6rem 0;border-top:1px solid var(--border)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .contact-intro{font-size:17px;color:var(--muted);line-height:1.8;margin-bottom:1.5rem}
 .contact-intro strong{color:var(--text)}
-.reloc-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border:1px solid rgba(74,222,128,.3);border-radius:8px;background:rgba(74,222,128,.06);font-size:13px;color:var(--green)}
+.focus-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border:1px solid rgba(108,143,255,.3);border-radius:8px;background:rgba(108,143,255,.06);font-size:13px;color:var(--accent)}
 .contact-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
 .contact-list li{display:flex;gap:1rem;align-items:center}
 .c-label{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;width:65px;flex-shrink:0}
-.c-val{font-size:14px;color:var(--text)}
+.c-val{font-size:14px;color:var(--text);word-break:break-word}
 .c-val a{color:var(--accent)}
+
+/* linkedin highlight */
+.linkedin-card{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:rgba(108,143,255,.08);border:1px solid rgba(108,143,255,.25);border-radius:10px;transition:all .2s;margin-top:.5rem}
+.linkedin-card:hover{background:rgba(108,143,255,.15);border-color:var(--accent);transform:translateY(-1px)}
+.linkedin-icon{width:36px;height:36px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
+.linkedin-text{display:flex;flex-direction:column;gap:.1rem}
+.linkedin-title{font-size:14px;color:var(--text);font-weight:500}
+.linkedin-sub{font-size:12px;color:var(--muted)}
 
 footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-size:12px;color:var(--muted)}
 footer span{color:var(--accent)}
 
-/* grid lines bg */
 .grid-bg{position:fixed;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;opacity:.4}
 main,nav{position:relative;z-index:1}
 footer{position:relative;z-index:1}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:860px){
+  nav{padding:0 1.25rem}
+  .nav-inner{height:54px}
+  .nav-links{gap:1.1rem}
+  .nav-links a{font-size:11px}
+
+  main{padding:0 1.25rem}
+
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:5.5rem;padding-bottom:3rem;gap:2.5rem}
+  .hero-sub{max-width:100%}
+
+  section{padding:3.5rem 0}
+  .section-header{margin-bottom:2rem}
+
+  .about-grid{grid-template-columns:1fr;gap:1.5rem}
+  .stats-stack{flex-direction:row;flex-wrap:wrap}
+  .stat-card{flex:1 1 calc(50% - .375rem);min-width:140px}
+
+  .exp-card{grid-template-columns:1fr;gap:1rem;padding:1.5rem}
+
+  .skills-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .skill-group{padding:1.25rem}
+
+  .lang-grid{grid-template-columns:repeat(2,1fr);gap:.75rem}
+
+  .contact-grid{grid-template-columns:1fr;gap:2rem}
+
+  .edu-card{padding:1.5rem}
+}
+
+@media (max-width:480px){
+  .nav-links{gap:.75rem}
+  .nav-links a{font-size:10px;letter-spacing:.06em}
+  .nav-logo{font-size:11px}
+
+  .hero-card{padding:1.5rem}
+  .hero-actions{gap:.75rem}
+  .btn-primary,.btn-ghost{padding:.65rem 1.25rem;font-size:12px;flex:1;text-align:center}
+
+  .stats-stack{flex-direction:column}
+  .stat-card{flex:1 1 100%}
+
+  .skills-grid{grid-template-columns:1fr}
+
+  .lang-grid{grid-template-columns:repeat(2,1fr)}
+
+  .card-stat{flex-direction:column;align-items:flex-start;gap:.2rem}
+  .card-stat-val{text-align:left}
+
+  .linkedin-card{padding:.85rem 1rem}
+  .linkedin-title{font-size:13px}
+  .linkedin-sub{font-size:11px}
+}
 </style>
 </head>
 <body>
@@ -165,10 +229,10 @@ footer{position:relative;z-index:1}
   <div>
     <div class="hero-eyebrow">
       <div class="hero-dot"></div>
-      <span>Open to relocation · Ulaanbaatar</span>
+      <span>Monitoring &amp; Evaluation · Based in Belgium</span>
     </div>
-    <h1>Data meets<br><em>development impact</em><br>in Mongolia</h1>
-    <p class="hero-sub">Belgian-Mongolian dual citizen. 4+ years delivering complex data and product projects across Europe. Now channelling that expertise toward institutional development in Mongolia.</p>
+    <h1>Data-driven<br><em>monitoring &amp; evaluation</em><br>for development</h1>
+    <p class="hero-sub">Belgian-Mongolian dual citizen with 4+ years in data, reporting, and stakeholder-facing analytical work across Europe. Currently building toward monitoring &amp; evaluation roles in international development — based in Belgium, with Mongolia as a long-term focus.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Get in touch</a>
       <a href="#experience" class="btn-ghost">View work</a>
@@ -193,19 +257,19 @@ footer{position:relative;z-index:1}
         <span class="card-stat-val">🇧🇪 Belgian &amp; 🇲🇳 Mongolian</span>
       </div>
       <div class="card-stat">
-        <span class="card-stat-label">Education</span>
-        <span class="card-stat-val">MSc KU Leuven · cum laude</span>
+        <span class="card-stat-label">Degree</span>
+        <span class="card-stat-val">MSc KU Leuven — Cum Laude</span>
       </div>
       <div class="card-stat">
         <span class="card-stat-label">Thesis</span>
-        <span class="card-stat-val">Mongolia SDGs · magna cum laude</span>
+        <span class="card-stat-val">Mongolia SDGs — Magna Cum Laude</span>
       </div>
       <div class="card-divider"></div>
       <div class="badge-row">
+        <span class="badge badge-purple">Monitoring &amp; Evaluation</span>
         <span class="badge badge-blue">Data Analytics</span>
-        <span class="badge badge-purple">Product</span>
-        <span class="badge badge-green">Available</span>
-        <span class="badge badge-gold">Int'l Dev</span>
+        <span class="badge badge-gold">Int'l Development</span>
+        <span class="badge badge-green">Based in Belgium</span>
       </div>
     </div>
   </div>
@@ -215,13 +279,13 @@ footer{position:relative;z-index:1}
 <section id="about">
   <div class="section-header">
     <div class="section-tag">About</div>
-    <h2 class="section-title">The intersection of data,<br>policy & cultural fluency</h2>
+    <h2 class="section-title">The intersection of data,<br>evidence &amp; impact</h2>
   </div>
   <div class="about-grid">
     <div class="about-text">
-      <p>Through his background in Public Policy at <strong>KU Leuven</strong>, Erdene developed a passion for statistics and working with data — and an avid belief in data-driven decision making as a force for meaningful change.</p>
-      <p>Currently on assignment at <strong>Nike</strong> as a Product Analyst, Erdene operates at the intersect of technology and business — driving data-informed decisions to fuel product innovation and operational efficiency across EMEA. His core focus is translating complex data into actionable insights that empower business stakeholders to leverage technology for competitive advantage.</p>
-      <p>Born in Mongolia and shaped by the Flemish education system in Belgium, Erdene brings a rare combination: the analytical rigour of European consulting and an intimate cultural and linguistic fluency in Mongolia. His KU Leuven master's thesis — awarded <strong>magna cum laude</strong> — modelled Mongolia's progress toward the UN Sustainable Development Goals. That research was a personal commitment, not just an academic one.</p>
+      <p>Through his background in Public Policy at <strong>KU Leuven</strong>, Erdene developed a passion for statistics, indicators, and evidence-based analysis — and a strong belief that good monitoring and evaluation is what turns development intentions into measurable impact.</p>
+      <p>Currently on assignment at <strong>Nike</strong> as a Product Analyst, Erdene designs and maintains indicator and reporting frameworks, runs data quality assurance processes, and translates operational data into structured insights for stakeholders — core monitoring &amp; evaluation functions, currently applied in a corporate operations context.</p>
+      <p>Born in Mongolia and shaped by the Flemish education system in Belgium, Erdene brings a combination of analytical rigour from European consulting and cultural fluency in Mongolia. His KU Leuven master's thesis — awarded <strong>magna cum laude</strong> — applied a monitoring &amp; evaluation lens to Mongolia's progress on the UN Sustainable Development Goals. That work reflects the direction Erdene is building toward: contributing to monitoring &amp; evaluation in international development, starting in Belgium with Mongolia as a long-term focus.</p>
     </div>
     <div class="stats-stack">
       <div class="stat-card">
@@ -234,7 +298,7 @@ footer{position:relative;z-index:1}
       </div>
       <div class="stat-card">
         <div class="stat-num">3</div>
-        <div class="stat-label">Professional languages: Mongolian, English &amp; Dutch</div>
+        <div class="stat-label">Statistical tools from academic training: R, STATA &amp; SPSS</div>
       </div>
     </div>
   </div>
@@ -248,28 +312,41 @@ footer{position:relative;z-index:1}
   </div>
   <div class="exp-list">
     <div class="exp-card">
-      <div class="exp-meta">
+      <div>
         <div class="exp-period">Sep 2023 – Present</div>
         <div class="exp-company">Nike EMEA · via Capgemini</div>
       </div>
       <div class="exp-body">
         <h3>Product Analyst — Digital Operations &amp; Reporting</h3>
-        <p>End-to-end ownership of BI and reporting products across EMEA logistics operations. Defined KPIs and monitoring frameworks for senior stakeholders, produced dashboards and analytical reports, coordinated cross-functional teams across business, IT, and operations, and maintained quality control throughout delivery cycles.</p>
+        <p>Coordinated reporting and data delivery workstreams across 7+ teams — operations, analytics, product security, and IT — translating business priorities into structured, actionable specifications for technical teams. Designed an indicator and reporting framework from scratch and maintained inherited frameworks across EMEA operations, supporting evidence-based decision-making for a daily user base of 30+ business employees. Defined acceptance criteria and led data quality assurance activities across delivery cycles — including root cause analysis and process efficiency improvements — reducing defects reaching production.</p>
         <div class="tag-row">
-          <span class="tag">KPI Design</span><span class="tag">BI Reporting</span><span class="tag">Roadmap Planning</span><span class="tag">Stakeholder Mgmt</span><span class="tag">EMEA Operations</span>
+          <span class="tag">Indicator &amp; KPI Frameworks</span><span class="tag">Data Quality Assurance</span><span class="tag">SQL &amp; Snowflake</span><span class="tag">Tableau Reporting</span><span class="tag">EMEA Operations</span>
         </div>
       </div>
     </div>
     <div class="exp-card">
-      <div class="exp-meta">
+      <div>
         <div class="exp-period">Sep 2021 – Feb 2023</div>
         <div class="exp-company">Pidpa · via Capgemini</div>
       </div>
       <div class="exp-body">
         <h3>Data Migration Consultant — Public Sector Systems</h3>
-        <p>Core team member on a multi-year SAP S/4HANA implementation for a public water utility. Bridged public-sector clients and technical teams, produced process maps and data quality standards. Gained hands-on experience in public-sector governance directly transferable to development organisation workflows.</p>
+        <p>Owned specific data domains — measuring points and master data — within an 18-month SAP S/4HANA transformation at a regulated public water utility, covering millions of records. Gathered and documented requirements, produced functional specifications, and coordinated data cleansing and validation processes across owned domains. Engaged directly with director-level stakeholders to validate data outcomes and align reporting processes through to programme go-live.</p>
         <div class="tag-row">
-          <span class="tag">SAP S/4HANA</span><span class="tag">Public Sector</span><span class="tag">Data Migration</span><span class="tag">Agile Planning</span><span class="tag">Documentation</span>
+          <span class="tag">SAP S/4HANA</span><span class="tag">Data Validation</span><span class="tag">Master Data</span><span class="tag">ETL</span><span class="tag">Public Sector Governance</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div>
+        <div class="exp-period">Mar – May 2021</div>
+        <div class="exp-company">City of Antwerp</div>
+      </div>
+      <div class="exp-body">
+        <h3>Research Staff — Business &amp; Innovation</h3>
+        <p>Synthesised qualitative and quantitative research findings into concise briefs and reports for institutional decision-makers, within a public-sector innovation team.</p>
+        <div class="tag-row">
+          <span class="tag">Research Synthesis</span><span class="tag">Policy Briefs</span><span class="tag">Qualitative &amp; Quantitative Analysis</span><span class="tag">Public Sector</span>
         </div>
       </div>
     </div>
@@ -286,13 +363,20 @@ footer{position:relative;z-index:1}
     <div class="edu-top">
       <div>
         <div class="edu-degree">MSc Business Administration — European Public Policy &amp; Management</div>
-        <div class="edu-inst">KU Leuven, Belgium · Graduated cum laude</div>
+        <div class="edu-inst">KU Leuven, Belgium · Methods: R, STATA, SPSS</div>
       </div>
-      <span class="badge badge-gold">Magna cum laude</span>
+      <span class="badge badge-blue">Degree: Cum Laude</span>
     </div>
     <div class="edu-body">
-      Focus on strategic analysis, international development, policy evaluation, public governance, stakeholder engagement, and UN frameworks.<br><br>
-      <strong>Master's thesis:</strong> <em>Forecasting the Sustainable Development Goals for Mongolia</em> — modelled Mongolia's development trajectories, analysed policy gaps, and identified evidence-based interventions. Awarded magna cum laude by jury.
+      Focus on strategic analysis, international development, policy evaluation, public governance, stakeholder engagement, and UN frameworks.
+    </div>
+    <div class="thesis-box">
+      <div class="thesis-label">
+        <span class="badge badge-gold">Thesis: Magna Cum Laude</span>
+      </div>
+      <div class="edu-body" style="margin:0">
+        <strong>"Forecasting the Sustainable Development Goals for Mongolia"</strong> — applied a monitoring &amp; evaluation lens to track Mongolia's progress against SDG indicators, model development trajectories, and identify evidence-based policy interventions. The thesis itself was awarded magna cum laude by jury — a distinction separate from, and higher than, the cum laude awarded for the overall degree.
+      </div>
     </div>
   </div>
 </section>
@@ -304,42 +388,42 @@ footer{position:relative;z-index:1}
     <h2 class="section-title">Capabilities &amp; languages</h2>
   </div>
   <div class="skills-grid">
-    <div class="skill-group">
-      <div class="skill-group-title">Project Delivery</div>
+    <div class="skill-group highlight">
+      <div class="skill-group-title">Monitoring &amp; Evaluation</div>
       <ul class="skill-list">
-        <li>Project lifecycle management</li>
-        <li>Roadmap &amp; prioritisation</li>
-        <li>Agile / Scrum methods</li>
-        <li>Risk identification</li>
-        <li>Quality assurance</li>
+        <li>Indicator &amp; KPI framework design</li>
+        <li>Data quality assurance &amp; validation</li>
+        <li>Policy analysis &amp; evaluation</li>
+        <li>Statistical analysis: R, STATA, SPSS</li>
+        <li>Research synthesis for decision-makers</li>
       </ul>
     </div>
     <div class="skill-group">
       <div class="skill-group-title">Data &amp; Analysis</div>
       <ul class="skill-list">
-        <li>KPI design &amp; monitoring</li>
         <li>Data analysis &amp; visualisation</li>
+        <li>SQL · Snowflake · Databricks</li>
+        <li>BI reporting &amp; dashboards (Tableau)</li>
+        <li>SAP S/4HANA &amp; ETL</li>
         <li>Market &amp; policy research</li>
-        <li>SAP S/4HANA</li>
-        <li>BI reporting &amp; dashboards</li>
       </ul>
     </div>
     <div class="skill-group">
-      <div class="skill-group-title">Stakeholder &amp; Governance</div>
+      <div class="skill-group-title">Stakeholder &amp; Delivery</div>
       <ul class="skill-list">
         <li>Multi-stakeholder management</li>
         <li>Cross-cultural communication</li>
         <li>Public sector governance</li>
-        <li>Policy analysis &amp; evaluation</li>
+        <li>Project lifecycle management (Agile/Scrum)</li>
         <li>Documentation &amp; knowledge transfer</li>
       </ul>
     </div>
   </div>
   <div class="lang-grid">
-    <div class="lang-card"><div class="lang-name">Mongolian</div><div class="lang-level">Native speaker</div></div>
-    <div class="lang-card"><div class="lang-name">English</div><div class="lang-level">Professional</div></div>
-    <div class="lang-card"><div class="lang-name">Dutch</div><div class="lang-level">Professional</div></div>
-    <div class="lang-card"><div class="lang-name">French</div><div class="lang-level">Elementary</div></div>
+    <div class="lang-card"><div class="lang-name">English</div><div class="lang-level">Fluent</div></div>
+    <div class="lang-card"><div class="lang-name">Dutch</div><div class="lang-level">Fluent</div></div>
+    <div class="lang-card"><div class="lang-name">Mongolian</div><div class="lang-level">Intermediate</div></div>
+    <div class="lang-card"><div class="lang-name">French</div><div class="lang-level">Basic</div></div>
   </div>
 </section>
 
@@ -351,17 +435,27 @@ footer{position:relative;z-index:1}
   </div>
   <div class="contact-grid">
     <div>
-      <p class="contact-intro">Looking for project or data roles at international development organisations working in <strong>Mongolia</strong>. Open to immediate relocation to Ulaanbaatar.</p>
-      <div class="reloc-badge">
-        <span>●</span> Available for relocation to Ulaanbaatar
+      <p class="contact-intro">Currently building experience in <strong>monitoring &amp; evaluation</strong>, data systems, and stakeholder reporting from Belgium — with international development, and eventually Mongolia, as a long-term focus.</p>
+      <div class="focus-badge">
+        <span>●</span> Open to Monitoring &amp; Evaluation roles
       </div>
     </div>
-    <ul class="contact-list">
-      <li><span class="c-label">Email</span><span class="c-val"><a href="mailto:erdene_altan@hotmail.com">erdene_altan@hotmail.com</a></span></li>
-      <li><span class="c-label">Phone</span><span class="c-val">+32 4 86 72 22 42</span></li>
-      <li><span class="c-label">LinkedIn</span><span class="c-val"><a href="https://www.linkedin.com/in/erdene-altantulkhuur-837105143/" target="_blank">erdene-altantulkhuur</a></span></li>
-      <li><span class="c-label">Based</span><span class="c-val">Antwerp, Belgium</span></li>
-    </ul>
+    <div>
+      <ul class="contact-list">
+        <li><span class="c-label">Email</span><span class="c-val"><a href="mailto:erdene_altan@hotmail.com">erdene_altan@hotmail.com</a></span></li>
+        <li><span class="c-label">Phone</span><span class="c-val">+32 4 86 72 22 42</span></li>
+        <li><span class="c-label">Based</span><span class="c-val">Antwerp, Belgium</span></li>
+      </ul>
+      <a href="https://www.linkedin.com/in/erdene-altantulkhuur-837105143/" target="_blank" class="linkedin-card">
+        <div class="linkedin-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <div class="linkedin-text">
+          <span class="linkedin-title">Connect on LinkedIn</span>
+          <span class="linkedin-sub">/in/erdene-altantulkhuur</span>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
